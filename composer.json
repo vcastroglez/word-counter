@@ -2,7 +2,7 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "Common words crawler for bulgarian and description generation with ollama + llama3.1",
-    "keywords": ["laravel", "framework"],
+    "keywords": ["laravel", "framework", "ollama", "bulgarian", "wikipedia", "learning", "LLM", "livewire", "crawler"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
