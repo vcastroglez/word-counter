@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Common words crawler for bulgarian and description generation with ollama + llama3.1",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
