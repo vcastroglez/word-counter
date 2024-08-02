@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 
 /**
+ * @property string $description
+ * @property string  $word
  * @mixin Builder
  */
 class Word extends Model

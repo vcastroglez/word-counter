@@ -6,10 +6,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "ext-dom": "*",
+        "ext-libxml": "*",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "ext-dom": "*",
-        "ext-libxml": "*"
+        "livewire/livewire": "^3.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
