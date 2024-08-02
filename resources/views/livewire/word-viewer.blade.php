@@ -9,18 +9,18 @@
     <button wire:loading.attr="disabled" id="generate" wire:click="generateDescription">Generate description</button>
     <button id="next" wire:click="next">Next</button>
     <script>
-        if (!"{{$current->description}}") {
-            setTimeout(() => {
-                clickWhenEnabled().then((btn) => {
-                    btn.click();
-                    setTimeout(()=>{
-                        clickWhenEnabled().then(()=>{
-                            document.location.reload();
-                        })
-                    }, 1000)
-                })
-            }, 500);
-        }
+        {{--if (!"{{$current->description}}") {--}}
+        {{--    setTimeout(() => {--}}
+        {{--        clickWhenEnabled().then((btn) => {--}}
+        {{--            btn.click();--}}
+        {{--            setTimeout(()=>{--}}
+        {{--                clickWhenEnabled().then(()=>{--}}
+        {{--                    document.location.reload();--}}
+        {{--                })--}}
+        {{--            }, 1000)--}}
+        {{--        })--}}
+        {{--    }, 500);--}}
+        {{--}--}}
 
         function clickWhenEnabled() {
             let interval = {};
