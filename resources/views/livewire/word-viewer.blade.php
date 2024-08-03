@@ -22,6 +22,6 @@
 		</div>
 	</div>
 	<div wire:loading class="text-center full-height full-width justify-content-center align-items-center align-content-center fs-huge">
-		Loading
+		Generating explanation
 	</div>
 </div>
