@@ -30,9 +30,9 @@ class OllamaController extends Controller
 			'stream' => false,
 			'model' => $this->model,
 			'prompt' => $prompt,
-			'keep_alive' => '5m',
+			'keep_alive' => '15m',
 			'options' => [
-				'temperature'=> 0.2,
+				'temperature'=> 0.5,
 			]
 		];
 
@@ -64,7 +64,7 @@ class OllamaController extends Controller
 		$base_prompt = "Describe the bulgarian word \"$word\" with 3 sections,
 		the first section with a header with the text \"Pronunciation\" and wrapped in <h2>  describing the pronunciation,
 		the second section with a header with the text \"Meaning\" and wrapped in <h2>  describing the meaning,
-		and a third section with a header with the text \"Examples\" and wrapped in <h2> with 3 examples in bulgarian of the use of the word and for each example the related english sentence.
+		and a third section with a header with the text \"Examples\" and wrapped in <h2> with 3 examples in bulgarian of the use of the word and for each example the translated english sentence.
 		Answer with only the 3 sections and in HTML format. Answer in english and exactly what I order.";
 		if(strlen($word) <= 2){
 			$base_prompt .= "It is a word.";
