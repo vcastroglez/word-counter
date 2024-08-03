@@ -28,7 +28,7 @@ class WordViewer extends Component
 		$percent = ($this->current->count / (new Word)->sum('count')) * 100;
 		$this->frequency = round($percent, 2);
 		if ($this->current->description){
-			$this->generateDescription();
+//			$this->generateDescription();
 		}
 	}
 
