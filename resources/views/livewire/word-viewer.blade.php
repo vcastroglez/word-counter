@@ -1,39 +1,24 @@
-<div>
-    <h1>{{$current->word}} - amount {{$current->count}}</h1>
-    <p wire:loading>
-        Loading Description
-    </p>
-    <br>
-    <br>
-    <p wire:loading.remove>{{$current->description}}</p>
-    <button wire:loading.attr="disabled" id="generate" wire:click="generateDescription">Generate description</button>
-    <button id="next" wire:click="next">Next</button>
-    <script>
-        {{--if (!"{{$current->description}}") {--}}
-        {{--    setTimeout(() => {--}}
-        {{--        clickWhenEnabled().then((btn) => {--}}
-        {{--            btn.click();--}}
-        {{--            setTimeout(()=>{--}}
-        {{--                clickWhenEnabled().then(()=>{--}}
-        {{--                    document.location.reload();--}}
-        {{--                })--}}
-        {{--            }, 1000)--}}
-        {{--        })--}}
-        {{--    }, 500);--}}
-        {{--}--}}
-
-        function clickWhenEnabled() {
-            let interval = {};
-            console.log('checking');
-            return new Promise((resolve) => {
-                interval = setInterval(() => {
-                    if (!document.getElementById('generate').disabled) {
-                        console.log('resolving');
-                        clearInterval(interval);
-                        resolve(document.getElementById('generate'));
-                    }
-                })
-            })
-        }
-    </script>
+<div class="component">
+	<div wire:loading.remove class="row full-height child-shrink justify-content-center align-items-center align-content-center">
+		<div class="text-center">
+			<span class="fs-huge fw-bold"><< {{$current->word}} >></span>
+		</div>
+		<div class="text-center mb-5">
+			<span>Frequency: {{$frequency}}%</span>
+		</div>
+		<div class="flex-grow-1 mb-5 description">
+			{!! $current->description  !!}
+		</div>
+		<div class="row justify-content-between">
+			<div class="col text-center">
+				<button class="btn btn-info" wire:click="generateDescription" id="generate">Generate description</button>
+			</div>
+			<div class="col text-center">
+				<button class="btn btn-warning" wire:click="next" id="next">Next</button>
+			</div>
+		</div>
+	</div>
+	<div wire:loading class="text-center full-height full-width justify-content-center align-items-center align-content-center fs-huge">
+		Loading
+	</div>
 </div>

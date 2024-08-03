@@ -2,32 +2,47 @@
 
 namespace App\Livewire;
 
-use App\Http\Controllers\Llama31Controller;
+use App\Http\Controllers\OllamaController;
 use App\Models\Word;
+use GuzzleHttp\Exception\GuzzleException;
 use Livewire\Component;
 
 class WordViewer extends Component
 {
     public Word $current;
+	public int $index = 0;
+	public int $frequency;
 
     public function __construct()
     {
-        $this->next();
+		$this->init();
     }
 
-    public function next()
-    {
-        $this->current = (new Word)->query()->inRandomOrder()->first();
-    }
+	private function init(): void
+	{
+		$this->current = (new Word)->query()->orderBy('count', 'DESC')->skip($this->index)->first();
+		$percent = ($this->current->count / (new Word)->sum('count')) * 100;
+		$this->frequency = round($percent, 2);
+	}
 
-    public function generateDescription()
-    {
-//        if(!empty($this->current->description)){
-//            return;
-//        }
-        /** @var Llama31Controller $llama */
-        $llama = app(Llama31Controller::class);
-        $this->current->description = $llama->getSync("What is the meaning of the bulgarian word: \"{$this->current->word}\", describe it in at least 1 paragraph")['response'] ?? null;
+	/**
+	 * @return void
+	 */
+	public function next(): void
+	{
+		$this->index ++;
+		$this->init();
+	}
+
+	/**
+	 * @return void
+	 * @throws GuzzleException
+	 */
+	public function generateDescription(): void
+	{
+        /** @var OllamaController $llama */
+        $llama = app(OllamaController::class);
+        $this->current->description = $llama->generateDescription($this->current->word);
         $this->current->save();
     }
 
