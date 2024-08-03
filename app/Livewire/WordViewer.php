@@ -12,7 +12,7 @@ class WordViewer extends Component
 {
     public Word $current;
 	public int $index = 0;
-	public int $frequency;
+	public float $frequency;
 
     public function __construct()
     {
