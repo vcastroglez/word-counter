@@ -11,6 +11,9 @@
 		</div>
 		<div class="row justify-content-between">
 			<div class="col text-center">
+				<button class="btn btn-warning" wire:click="prev" id="generate">Previous</button>
+			</div>
+			<div class="col text-center">
 				<button class="btn btn-info" wire:click="generateDescription" id="generate">Generate description</button>
 			</div>
 			<div class="col text-center">

@@ -59,9 +59,9 @@ class OllamaController extends Controller
 	private function getPrompt(string $word): string
 	{
 		return "Describe the bulgarian word \"$word\" with 3 sections,
-		the first section describing the pronunciation,
-		the second section explaining the meaning
-		and a 3rd section with 3 examples in bulgarian of use of the word and for each example the english sentence.
+		the first section with a header with the text \"Pronunciation\" and wrapped in <h2>  describing the pronunciation,
+		the second section with a header with the text \"Meaning\" and wrapped in <h2>  describing the meaning,
+		and a third section with a header with the text \"Examples\" and wrapped in <h2> with 3 examples in bulgarian of the use of the word and for each example the related english sentence.
 		Answer with only the 3 sections and in HTML format. Answer in english.";
 	}
 }
