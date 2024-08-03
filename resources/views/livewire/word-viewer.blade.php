@@ -1,5 +1,5 @@
 <div class="component">
-	<div wire:loading.remove class="row full-height child-shrink justify-content-center align-items-center align-content-center">
+	<div wire:loading.remove class="row full-width full-height child-shrink justify-content-center align-items-center align-content-center">
 		<div class="text-center">
 			<span class="fs-huge fw-bold"><< {{$current->word}} >></span>
 		</div>
